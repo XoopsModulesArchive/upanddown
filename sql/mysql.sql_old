@@ -1,0 +1,40 @@
+#
+# Table structure for table 'prefix_upanddown'
+#
+
+CREATE TABLE `upanddown` (
+  `id` int(11) NOT NULL auto_increment,
+  `uid` int(5) NOT NULL default '0',
+  `cat` varchar(25) NOT NULL default '',
+  `img` varchar(30) NOT NULL default '',
+  `clic` int(11) NOT NULL default '0',
+  `note` int(14) NOT NULL default '0',
+  `vote` tinyint(14) unsigned NOT NULL default '0',
+  `valid` int(1) default NULL,
+  `date` int(14) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `img` (`img`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE = ISAM;
+
+CREATE TABLE `upanddown_cat` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `cat` varchar(25) NOT NULL default '',
+  `img` varchar(150) NOT NULL default '',
+  `coment` varchar(250) NOT NULL default '',
+  `clic` int(11) NOT NULL default '0',
+  `alea` int(1) default '1',
+  `valid` int(1) default '1',
+  `date` timestamp(14) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE = ISAM;
+
+CREATE TABLE `upanddown_comments` (
+  `id` int(10) NOT NULL auto_increment,
+  `lid` int(10) NOT NULL default '0',
+  `uid` int(10) NOT NULL default '0',
+  `titre` varchar(75) NOT NULL default '',
+  `texte` text NOT NULL,
+  `date` int(10) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE = ISAM;

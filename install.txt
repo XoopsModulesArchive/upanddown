@@ -1,0 +1,88 @@
+##################################################################################
+# Magalerie Version 1.4                                                         #                                                                                #
+# dernière modification: 25/09/2002                                                 #
+# Scripts Home:                 http://www.lespace.org                           #                                                                                       #                                                                              #
+# auteur           :            bidou                                            #
+# émail            :            bidou@lespace.org                                #
+# Site web         :                http://www.lespace.org                           #
+# licence          :            Gpl                                              #
+# Ueberarbeitet: frankblack frankblack@01019freenet.de #
+
+##################################################################################
+
+Willkommen zu UpandDown!
+
+Dieses Skript habe ich umgeschrieben, weil ein Mitglied von myxoops.de die Möglichkeit haben wollte, Word- und Excel-Dateien hochzuladen oder sie auch zum Download anzubieten. Es ist momentan möglich folgende Dateitypen hoch- bzw. runterzuladen: Word (.doc), RichTextFormat (.rtf), Excel (.xls), GIF (.gif), PNG (.png), JPG (.jpg), Acrobat (.pdf) und Powerpoint (.ppt). Es ist recht einfach die Dateiliste zu erweitern: 1. Die Datei Addimg.php öffnen und nach Zeile 41 fortlaufend nummeriert nach obigen Beispielen die Erweiterungen angeben. 2. Die Datei show.php öffnen, die Zeilen 58 - 61 kopieren und einfügen. Die Erweiterungen, Beschreibung und Vorschaubild nach Bedarf ändern. 3. Die Datei galerie.php öffnen, die Zeilen 162 - 167 kopieren und einfügen. Die Erweiterungen, Beschreibung und Vorschaubild nach Bedarf ändern. That´s it!
+
+Installation:
+Den Modul-Ordner upanddown auf den Webserver in den modules-Ordner kopieren. Die Zugriffsrechte für /magalerie/cache auf chmod 777, /magalerie/cache/config.php auf chmod 666, /magalerie/galerie auf chmod 777 und /magalerie/galerie/* auf chmod 777 setzen (* steht für Unterordner).
+
+Das Modul wie gehabt installieren. Blöcke und Gruppenrechte setzen. Fertig!
+
+Bedienungshinweise:
+Kategorien werden als Ordner im Verzeichnis /updown angelegt (Zugriffsrechte s.o.). Über den Menüpunkt "Automatische Aktualisierung" werden mit "Aktualisieren von Kategorien" die angelegten Ordner als Kategorien hinzugefügt. Unterordner (Zugriffsrechte s.o.) in den Kategorieordnern angelegt (Es ist nur eine Subkategorie möglich). Mit "Neue Kategorie(n) hinzufügen", Hauptkategorie auswählen - wird die Subkategorie hinzugefügt. Man ist nicht zwingend darauf angewiesen alle Dateien über die Eingabemaske des Moduls auf der Startseite (Datei hinzufügen) hochzuladen. Man kann alle möglichen Dateien per FTP in die unterschiedlichen Ordner/Kategorien hochladen. Mit "Neue Datei(en) hinzufügen" (für die jeweiligen Kategorien) werden die Bilder der Kategorie hinzugefügt - das muss für alle angelegten Kategorien wiederholt werden.
+
+Der Menüpunkt "Konfiguration" ist eigentlich selbsterklärend. Die zweite Möglichkeit der Navigation ist unwichtig ob Ihr Ja oder Nein schreibt ist bleibt sich alles gleich. Sinnvoll wäre es nach dem Einrichten der Konfiguration die Datei /magalerie/cache/config.php wieder mit einem Schreibschutz zu versehen.
+
+Mit "Dateien auflisten" können bestehende Dateien aufgelistet, verändert, angesehen, gelöscht oder in andere Kategorien verschoben ist. Wenn auf !-Zeichen auf der Seite zu sehen ist, dann müssen Dateien freigegeben werden. Einfach auf das Ausrufezeichen klicken und gelangt in den Datei-Bearbeiten-Modus.
+
+Mit "Kategorien bearbeiten" kann man die Kategorien sichtbar/unsichtbar machen, sie mit einer Beschreibung versehen, sie löschen oder sie mit einem Kategoriebild versehen. Bei der Auswahl des Kategoriebildes kann man sich entweder für eine Zufallsauswahl entscheiden oder ein bestimmtes Bild angeben (muss im Ordner /images des Moduls liegen). Dementsprechend ist auch der Pfad mit images/deinbild.jpg anzugeben. Diese Bilder werden auch im Block angezeigt. Bei der Anzeige der Zufallsbilder ist zu beachten, dass manche Dateitypen keine Vorschau haben und gerade bei der zufälligen Anzeige sieht ein Dateiicon nicht besonders prickelnd aus.
+
+Viel Vergnügen beim Hochladen.
+
+frankblack
+
+Pour faire fonctionner ce module.
+
+Décompressez l'archive magalerie-1.02b.zip ou magalerie-1.02b.tar.gz et transférer le
+dossier /magalerie dans le répertoire /modules de votre site xoop.
+
+Appliquez les droits en écriture suivants:
+        /magalerie/cache                chmod 777
+        /magalerie/cache/config.php        chmod 666
+        /magalerie/galerie                chmod 777
+        /magalerie/galerie/*                chmod 777
+
+*représente tout les dossiers de catégorie
+
+Installer le module via l'admin de votre site. Ce module fonctionne actuellement sans système de template.
+Pour ajouter des images et des catégories a la galerie, transférer vos répertoires de catégories
+avec les images qu'ils contiennent avec votre client ftp préféré dans le répertoire modules/magalerie/galerie
+et pensez a chmoder vos catégories.
+L'insertion dans la base de donnée est automatique. En vous rendant vers admin/maglerie insertion automatique.
+
+Pour la première utilisation cliquer deux fois sur "Ajouter un (des) Nouveau(x) répertoire(s)" pour actualiser.
+
+
+IMPORTANT! si les vignettes creer sont grises renommer les fichiers:
+
+racine/modules/magalerie/functions.php en racine/modules/magalerie/functions.php-old
+et
+racine/modules/magalerie/functions.php.dist en racine/modules/magalerie/functions.php
+
+ensuite désinstaller et réinstaller le module et reprendre les opérations.
+
+.............
+
+Mise a jour depuis la version 1.2, 1.3
+
+Conservation des bases prédentes.
+Si le module a été désactivé lors de l'instalation de xoop 2, remplacer les fichiers et cliquez sur actualiser le module
+puis réactivez-le.
+
+Si le module n'a pas été désactivé et que vos base sont présente désactiver-le et actualiser
+
+Pour désinstaler le module sans détruire les base, supprimer les fichiers magalerie/sql/*
+
+Si la base est détruite, installer en conservant vos images et reprendre la procedure de mise en route.
+La base sera identique a la précédente mais sans les commentaires.
+
+Dans la plupart des cas.
+Ecraser simplement les fichiers et actualiser le module.
+
+
+IMPORTANT! verifier si les nouvelles vignettes créer sont grises dans ce cas renommer les fichiers:
+
+racine/modules/magalerie/functions.php en racine/modules/magalerie/functions.php-old
+et
+racine/modules/magalerie/functions.php.dist en racine/modules/magalerie/functions.php
